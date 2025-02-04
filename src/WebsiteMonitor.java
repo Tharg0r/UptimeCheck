@@ -33,6 +33,7 @@ public class WebsiteMonitor {
                     checkWebsiteAndNotify(website);
                 } catch (Exception e) {
                     e.printStackTrace();
+                    sendTelegramAlert("Caught Exception at checkWebsiteAndNotify(): " + e.getMessage());
                 }
             });
         }, 0, 1, TimeUnit.MINUTES);
