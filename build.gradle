@@ -24,3 +24,11 @@ jar {
         attributes 'Main-Class': 'WebsiteMonitor'
     }
 }
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+    }
+}
