@@ -21,6 +21,6 @@ dependencies {
 
 jar {
     manifest {
-        attributes 'Main-Class': WebsiteMonitor
+        attributes 'Main-Class': 'WebsiteMonitor'
     }
 }
