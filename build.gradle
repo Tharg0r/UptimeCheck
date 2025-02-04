@@ -16,7 +16,12 @@ repositories {
 }
 
 dependencies {
-    // Add any dependencies if needed
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
+}
+
+test {
+    useJUnitPlatform()
 }
 
 jar {
@@ -26,9 +31,7 @@ jar {
 }
 
 sourceSets {
-    main {
-        java {
-            srcDirs = ['src']
-        }
+    test {
+        java { srcDirs = ['src/test/java'] }
     }
 }
