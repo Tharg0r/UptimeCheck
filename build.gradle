@@ -1,0 +1,20 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.kochsystems'
+version = '0.1'
+
+sourceCompatibility = '11'
+targetCompatibility = '11'
+
+mainClassName = 'WebsiteMonitor' // adjust if your main class is in a package
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Add any dependencies if needed
+}
