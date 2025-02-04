@@ -11,17 +11,16 @@ targetCompatibility = '11'
 
 mainClassName = 'WebsiteMonitor' // adjust if your main class is in a package
 
-jar {
-    manifest {
-        attributes 'Main-Class': WebsiteMonitor
-    }
-}
-
-
 repositories {
     mavenCentral()
 }
 
 dependencies {
     // Add any dependencies if needed
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': WebsiteMonitor
+    }
 }
