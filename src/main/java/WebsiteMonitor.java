@@ -39,6 +39,7 @@ public class WebsiteMonitor {
         }, 0, 1, TimeUnit.MINUTES);
     }
 
+
     protected static void checkWebsiteAndNotify(String website) {
         int code = -1; // Default value for when no code is available
         try {
