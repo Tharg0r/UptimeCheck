@@ -6,8 +6,8 @@ plugins {
 group = 'com.kochsystems'
 version = '0.1'
 
-sourceCompatibility = '11'
-targetCompatibility = '11'
+sourceCompatibility = '21'
+targetCompatibility = '21'
 
 mainClassName = 'WebsiteMonitor' // adjust if your main class is in a package
 
