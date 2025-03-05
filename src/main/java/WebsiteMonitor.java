@@ -15,6 +15,7 @@ public class WebsiteMonitor {
             "REMOVED",
             "REMOVED",
             "REMOVED",
+            "REMOVED",
             "REMOVED"
     );
     private static final Map<String, Integer> failureCounts = new HashMap<>();
