@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/UptimeCheck.main.iml" filepath="$PROJECT_DIR$/.idea/modules/UptimeCheck.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/UptimeCheck.test.iml" filepath="$PROJECT_DIR$/.idea/modules/UptimeCheck.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/UptimeCheck.iml" filepath="$PROJECT_DIR$/.idea/UptimeCheck.iml" />
     </modules>
   </component>
 </project>
