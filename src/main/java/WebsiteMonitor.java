@@ -1,24 +1,38 @@
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+import io.github.cdimascio.dotenv.Dotenv;
 
 public class WebsiteMonitor {
     private static final boolean DEBUG_MODE = true;
-    private static final String BOT_TOKEN = "REMOVED";
-    private static final String CHAT_ID = "REMOVED";
-    private static final List<String> WEBSITES = List.of(
-            "REMOVED",
-            "REMOVED",
-            "REMOVED",
-            "REMOVED",
-            "REMOVED"
-    );
+    /**
+     * The Dotenv.load() call by default looks for a .env file in your working directory.
+     * If you’re using a different filename (like .env.local), you can load it like so:
+     * {@code private static final Dotenv dotenv = Dotenv.configure().filename(".env.local").load();}
+     */
+    private static final Dotenv dotenv = Dotenv.load();
+    private static final String BOT_TOKEN = dotenv.get("BOT_TOKEN");
+    private static final String CHAT_ID = dotenv.get("CHAT_ID");
+
+    // Read websites from the .env file, split by comma, and trim whitespace.
+    private static final List<String> WEBSITES = Arrays.stream(dotenv.get("WEBSITES").split(","))
+            .map(String::trim)
+            .toList();
     private static final Map<String, Integer> failureCounts = new HashMap<>();
+
+    //Check if variables are set
+    static {
+        if (BOT_TOKEN == null || CHAT_ID == null) {
+            System.err.println("Error: BOT_TOKEN or CHAT_ID environment variable is not set.");
+            System.exit(1);
+        }
+    }
 
     public static void main(String[] args) {
         testTelegramConnection();
@@ -50,7 +64,6 @@ public class WebsiteMonitor {
                 System.out.println("[\033[31mE\033[0m] " + website + " is down with code: " + code + ". Failure Count: " + failures);
                 if (failures >= 5) {
                     sendTelegramAlert(website + " is down with code: " + code);
-                    //failureCounts.put(website, 0);
                 }
             } else {
                 failureCounts.put(website, 0);
@@ -138,7 +151,9 @@ public class WebsiteMonitor {
         }
     }
 
-    //replace in checkWebsiteAndNotify to see output in tests.
+    /**
+     * Replace the SendTelegramAlert() in checkWebsiteAndNotify() with this run tests without a working Telegram connection.
+     */
     public static void mockSendTelegramAlert(String message) {
         System.out.println("Mock Alert: " + message);
     }
