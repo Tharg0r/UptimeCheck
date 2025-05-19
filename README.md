@@ -1,5 +1,7 @@
 # UptimeCheck
 
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Tharg0r/UptimeCheck)
+
 A simple Java application to monitor the availability of specified websites and send Telegram alerts if they become unavailable. This project uses environment variables (via a `.env` file and [dotenv-java](https://github.com/cdimascio/dotenv-java)) to keep sensitive information private.
 
 ---
